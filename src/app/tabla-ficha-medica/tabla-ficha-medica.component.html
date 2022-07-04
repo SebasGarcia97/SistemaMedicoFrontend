@@ -1,0 +1,38 @@
+<div class="container mt-4 " >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Datos Paciente</span>
+      <button class="btn btn-dark btn-lg" style="float: right" routerLink="/listaFichaMedica" >Regresar</button>
+      <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Medico</th>
+          <th scope="col">Nombre Paciente</th>
+          <th scope="col">Diagnostico</th>
+          <th scope="col">Medicacion</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Hospital</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let historia  of listDiagnosticoPaciente; let idPersona = index;   ">
+          <th scope="row"> {{  idPersona }}  </th>
+          <td>{{ historia.tblMedico?.tblPersona?.perNombre}} {{ historia.tblMedico?.tblPersona?.perApellido}}</td>
+          <td>{{ historia.tblPaciente?.tblPersona?.perNombre}} {{ historia.tblPaciente?.tblPersona?.perApellido}}</td>
+          <td>{{ historia.dpDiagnostico}}</td>
+          <td>{{ historia.dpMedicacion}}</td>
+          <td>{{ historia.tblHistoriaClinica?.tblDepartamento?.depNombre}}</td>
+          <td>{{ historia.tblHistoriaClinica?.tblDepartamento?.depDireccion}}</td>
+          <td>{{ historia.tblHistoriaClinica?.tblDepartamento?.tblHospital?.hspNombre}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>

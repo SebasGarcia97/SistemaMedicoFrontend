@@ -1,0 +1,48 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 style="text-align: center"> Formulario Diagnóstico Paciente </h2>
+          <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <form class="mt-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idHistoriaClinica1">Historia Clinica</span>
+              <input  class="form-control" id="idInputHistoriaClinica1"  name="HistoriaClinica" aria-describedby="basic-addon1" [(ngModel)]="historiaClinica.idHistoriaClinica" disabled >
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idPaciente1">Paciente</span>
+              <input class="form-control" id="idInputPaciente1"  name="Paciente" aria-describedby="basic-addon1" [(ngModel)]="paciente.idPaciente" disabled>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idMedico">Medico</span>
+              <select class="form-select" id="idInputMedico" name="medico"[(ngModel)]="medico.idMedico" >
+                <option *ngFor="let medico of listMedicos" [ngValue]=" medico.idMedico">{{medico.tblPersona?.perNombre}} {{ medico.tblPersona?.perApellido }}</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="dpDiagnostico1">Diagnostico</span>
+              <textarea class="form-control" id="idInpdpDiagnostico1"  name="Diagnostico"  aria-label="With textarea" [(ngModel)]="diagnosticoPaciente.dpDiagnostico"></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idMedicacion1" >Medicacion</span>
+              <textarea class="form-control" id="idInputMedicacion1" name="Medicacion" aria-label="With textarea" [(ngModel)]="diagnosticoPaciente.dpMedicacion"></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idObservacion1" >Observacion</span>
+              <textarea class="form-control" id="idInputObservacion1" name="Observacion" aria-label="With textarea" [(ngModel)]="diagnosticoPaciente.dpObservacion"></textarea>
+            </div>
+
+            <br>
+            <div class="column">
+              <button class="btn-primary btn" style="margin-right: 10px"  (click)="crearDiagnosticoPaciente()" > Continuar </button>
+              <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaFichaMedica"> Regresar </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

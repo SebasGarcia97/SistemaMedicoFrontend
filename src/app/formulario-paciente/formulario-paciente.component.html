@@ -1,0 +1,103 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 style="text-align: center"> Formulario de Registro Paciente </h2>
+          <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <div *ngIf="this.id == null">
+            <form class="mt-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCedula" >Cedula</span>
+                <input type="text" class="form-control"  id="idInputCedula" name="cedula" placeholder="Ingrese su Cédula" aria-describedby="basic-addon1"  [(ngModel)]="persona.perCedula">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idNombre">Nombre</span>
+                <input type="text" class="form-control" id="idInputNombre" name="nombre" placeholder="Ingrese su Nombre" aria-describedby="basic-addon1" [(ngModel)]="persona.perNombre">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idApellido">Apellido</span>
+                <input type="text" class="form-control"  id="idInputApellido" name="apellido" placeholder="Ingrese su Apellido" aria-describedby="basic-addon1" [(ngModel)]="persona.perApellido">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idTelefono">Telefono</span>
+                <input type="text" class="form-control" id="idInputTelefono" name="telefono" placeholder="Ingrese su Telefono" aria-describedby="basic-addon1" [(ngModel)]="persona.perTelefono">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCorreo">Correo</span>
+                <input type="email" class="form-control" id="idInputCorreo" name="correo" placeholder="Ingrese su Correo Electrónico" aria-describedby="emailHelp" [(ngModel)]="persona.perEmail">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idDireccion">Direccion</span>
+                <input type="email" class="form-control"  id="idInputDireccion" name="direccion" placeholder="Ingrese su Dirección" aria-describedby="basic-addon1" [(ngModel)]="persona.perDireccion">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idFechaNacimiento">Fecha de Nacimiento</span>
+                <input type="date" class="form-control" id="idInputFechaNacimiento"  name="fechaNacimiento"   placeholder="Ingrese su Correo Electrónicp" aria-describedby="basic-addon1" [(ngModel)]="persona.perFechaNac">
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="idDescapacidad" >Discapacidad</span>
+                <textarea class="form-control" id="idInputDescapacidad" name="discapacidad" aria-label="With textarea" [(ngModel)]="paciente.pacDiscapacidad"></textarea>
+              </div>
+              <br>
+              <div class="column">
+                <button class="btn-primary btn" style="margin-right: 10px" (click)="crearPaciente()" > Guardar </button>
+                <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaPacientes"> Regresar </button>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="this.id != null">
+            <form class="mt-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCedula1" >Cedula</span>
+                <input type="text" class="form-control"  id="idInputCedula1" name="cedula" placeholder="Ingrese su Cédula" aria-describedby="basic-addon1"  [(ngModel)]="persona.perCedula" >
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idNombre1">Nombre</span>
+                <input type="text" class="form-control" id="idInputNombre1" name="nombre" placeholder="Ingrese su Nombre" aria-describedby="basic-addon1" [(ngModel)]="persona.perNombre">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idApellido1">Apellido</span>
+                <input type="text" class="form-control"  id="idInputApellido1" name="apellido" placeholder="Ingrese su Apellido" aria-describedby="basic-addon1" [(ngModel)]="persona.perApellido">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idTelefono1">Telefono</span>
+                <input type="text" class="form-control" id="idInputTelefono1" name="telefono" placeholder="Ingrese su Telefono" aria-describedby="basic-addon1" [(ngModel)]="persona.perTelefono">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCorreo1">Correo</span>
+                <input type="email" class="form-control" id="idInputCorreo1" name="correo" placeholder="Ingrese su Correo Electrónico" aria-describedby="emailHelp" [(ngModel)]="persona.perEmail">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idDireccion1">Direccion</span>
+                <input type="email" class="form-control"  id="idInputDireccion1" name="direccion" placeholder="Ingrese su Dirección" aria-describedby="basic-addon1" [(ngModel)]="persona.perDireccion">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idFechaNacimiento1">Fecha de Nacimiento</span>
+                <input type="date" class="form-control" id="idInputFechaNacimiento1"  name="fechaNacimiento"   placeholder="Ingrese su Correo Electrónicp" aria-describedby="basic-addon1" [(ngModel)]="persona.perFechaNac">
+              </div>
+              <span class="input-group-text" id="idestado" > Estado</span>
+              <select  class="input-group input-group-sm mb-3" id="idInputEstado1"  name="estado"    aria-label="Default select example" [(ngModel)]="paciente.estadoPaciente" >
+                <option selected>Seleccione</option>
+                <option>True</option>
+                <option>False</option>
+              </select>
+
+              <div class="input-group">
+                <span class="input-group-text" id="idDescapacidad1" >Discapacidad</span>
+                <textarea class="form-control" id="idInputDescapacidad1" name="discapacidad" aria-label="With textarea" [(ngModel)]="paciente.pacDiscapacidad"></textarea>
+              </div>
+
+              <br>
+              <div class="column">
+                <button class="btn-primary btn" style="margin-right: 10px" (click)="editarPaciente()" > Editar </button>
+                <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaPacientes"> Regresar </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

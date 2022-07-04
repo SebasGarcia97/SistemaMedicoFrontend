@@ -1,0 +1,52 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 style="text-align: center"> Formulario de Ficha Médica </h2>
+          <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <form class="mt-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idPaciente">Paciente</span>
+                <select class="form-select" id="idInputPaciente" name="paciente" [(ngModel)]="paciente.idPaciente" >
+                  <option *ngFor="let paciente of listPaciente" [ngValue]="paciente.idPaciente">{{paciente.tblPersona?.perNombre}} {{ paciente.tblPersona?.perApellido }}</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idMedico">Medico</span>
+                <select class="form-select" id="idInputMedico" name="medico"[(ngModel)]="userSingUp.idMedico" >
+                  <option *ngFor="let medico of listMedicos" [ngValue]=" medico.idMedico">{{medico.tblPersona?.perNombre}} {{ medico.tblPersona?.perApellido }}</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idFecha1">Fecha de Ingreso</span>
+                <input type="date" class="form-control" id="idInputFecha1"  name="fecha"   aria-describedby="basic-addon1" [(ngModel)]="historiaClinica.hcFecha">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idHospital">Hospital</span>
+                <select class="form-select" id="idInputhospital"  name="hospital" [(ngModel)]="hospital.idHospital">
+                  <option *ngFor="let hospital of listHospital" [ngValue]="hospital.idHospital" >
+                    {{hospital.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idDepartamento">Departamento</span>
+                <select class="form-select" id="idDeparamento" name="correo"  [(ngModel)]="departamento.idDepartamento">
+                  <option *ngFor="let departamento of listDepartamento" [ngValue]="departamento.idDepartamento" >
+                    {{departamento.name}}
+                  </option>
+                </select>
+              </div>
+              <br>
+              <div class="column">
+                <button class="btn-primary btn" style="margin-right: 10px"  (click)="crearFichaMedica()" > Guardar </button>
+                <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaFichaMedica"> Regresar </button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

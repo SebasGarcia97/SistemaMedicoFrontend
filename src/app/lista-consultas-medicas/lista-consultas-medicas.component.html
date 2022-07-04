@@ -1,0 +1,41 @@
+<div class="container mt-4 " >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Listado de Consultas Médicas</span>
+
+      <button class="btn btn-dark btn-lg" style="float: right" routerLink="/consultaMedicas" >Agregar Consulta Médica</button>
+
+      <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cedula Paciente</th>
+          <th scope="col">Nombre Paciente</th>
+          <th scope="col">Telefono Paciente</th>
+          <th scope="col">Cita</th>
+          <th scope="col">Medico</th>
+          <th scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let paciente of listcitasMedico; let idPersona = index;">
+          <th scope="row"> {{  idPersona }}  </th>
+          <td>{{ paciente.citaCedulaPaciente}} </td>
+          <td>{{ paciente.citaNombrePaciente}} {{ paciente.citaApellidoPaciente}} </td>
+          <td>{{ paciente.citaTelefonoPaciente}} </td>
+          <td>{{ paciente.fechaHoraCita}} </td>
+          <td>{{ paciente.tblMedico?.tblPersona?.perNombre}} {{ paciente.tblMedico?.tblPersona?.perApellido}} </td>
+          <td>{{ paciente.citaEstado}} </td>
+          <td>
+            <button class="btn" title="Editar Consulta" [routerLink]="['/consultaMedicas/', paciente.idCita]" ><i class="fa fa-edit" ></i></button>
+            <button class="btn" title="Eliminar Consulta" (click)="eliminarCita(paciente)" ><i class="fa fa-trash" ></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>

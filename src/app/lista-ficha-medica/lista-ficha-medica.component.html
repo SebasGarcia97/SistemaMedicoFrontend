@@ -1,0 +1,40 @@
+<div class="container mt-4 " >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Listado de Fichas Médicas</span>
+
+      <button class="btn btn-dark btn-lg" style="float: right" routerLink="/formularioFichaMedica" >Crear Ficha Médica</button>
+
+      <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Paciente</th>
+          <th scope="col">Apellido Paciente</th>
+          <th scope="col">Cedula Paciente</th>
+          <th scope="col">Nombre Hospital</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Fecha de Ingreso</th>
+          <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let historia  of  listHistoriaClinica; let idPersona = index;   ">
+          <th scope="row"> {{  idPersona }}  </th>
+          <td>{{ historia.tblPaciente?.tblPersona?.perNombre}}</td>
+          <td>{{ historia.tblPaciente?.tblPersona?.perApellido}}</td>
+          <td>{{ historia.tblPaciente?.tblPersona?.perCedula}}</td>
+          <td>{{ historia.tblDepartamento?.tblHospital?.hspNombre}}</td>
+          <td>{{ historia.tblDepartamento?.depNombre}}</td>
+          <td>{{ historia.hcFecha}} </td>
+          <button class="btn" title="Registrar Signos Vitales" [routerLink]="['/diagnosticoPaciente/', historia.idHistoriaClinica]" ><i class="fa fa-user " ></i></button>
+          <button class="btn" title="Ver Datos Paciente" [routerLink]="['/tablaFichaMedica/',historia.idHistoriaClinica]"  ><i class="fa fa-eye"  ></i></button>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>

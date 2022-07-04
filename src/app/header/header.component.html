@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Sistema Médico</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ">
+
+        <div *ngIf="valor=='1'">
+          <li class="nav-item">
+            <a class="nav-link" href="inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listaFichaMedica">Ficha Médica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listaConsultaMedica">Consultas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Salir</a>
+          </li>
+        </div>
+
+        <div *ngIf="valor=='2'">
+          <li class="nav-item">
+            <a class="nav-link" href="inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listaPacientes">Pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listaFichaMedica">Ficha Médica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Salir</a>
+          </li>
+        </div>
+
+      </ul>
+    </div>
+  </div>
+</nav>

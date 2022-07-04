@@ -1,0 +1,103 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body" *ngIf="this.id == null">
+          <h2 style="text-align: center"> Consulta Medica </h2>
+          <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <form class="mt-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idCedulaPac1">Cedula Paciente</span>
+              <input class="form-control" id="idCedulaPacInput1"  name="idCedulaPac1" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaCedulaPaciente">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idNombrePac1">Nombre Paciente</span>
+              <input class="form-control" id="idNombrePacInput1" name="idNombrePac1" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaNombrePaciente">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idApellidoPac1">Apellido Paciente</span>
+              <input class="form-control" id="idApellidoPac" name="idApellidoPac1" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaApellidoPaciente">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idTelefono">Telefono</span>
+              <input class="form-control" id="idInputTelefoo1"  name="Telefono" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaTelefonoPaciente">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idFechaCita">Dia Cita</span>
+              <input type="date" class="form-control" id="idInputFechaCita"  name="fechaCita"  aria-describedby="basic-addon1"  [(ngModel)]="citasPaciente.citaFecha">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idHoraCita">Hora Cita</span>
+              <input class="form-control"  id="appt-time" type="time" name="appt-time" step="2" [(ngModel)]="citasPaciente.citaHora">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idMedico">Medico</span>
+              <select class="form-select" id="idInputMedico" name="medico"[(ngModel)]="medico.idMedico">
+                <option *ngFor="let medico of listMedicos" [ngValue]=" medico.idMedico">{{medico.tblPersona?.perNombre}} {{ medico.tblPersona?.perApellido }}</option>
+              </select>
+            </div>
+            <br>
+            <div class="column">
+              <button class="btn-primary btn" style="margin-right: 10px"  (click)="crearCita()" > Continuar </button>
+              <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaConsultaMedica"> Regresar </button>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="this.id != null" >
+          <div class="card-body">
+            <h2 style="text-align: center"> Editar Consulta Medica </h2>
+            <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <form class="mt-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCITA2">ID CITA</span>
+                <input class="form-control" id="idCITAInput2"  name="idCita2" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.idCita" disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idCedulaPac2">Cedula Paciente</span>
+                <input class="form-control" id="idCedulaPacInput2"  name="idCedulaPac2" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaCedulaPaciente">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idNombrePac2">Nombre Paciente</span>
+                <input class="form-control" id="idNombrePacInput2" name="idNombrePac2" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaNombrePaciente">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idApellidoPac3">Apellido Paciente</span>
+                <input class="form-control" id="idApellidoPac2" name="idApellidoPac3" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaApellidoPaciente">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idTelefono2">Telefono</span>
+                <input class="form-control" id="idInputTelefoo2"  name="Telefono2" aria-describedby="basic-addon1" [(ngModel)]="citasPaciente.citaTelefonoPaciente">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idFechaCita2">Dia Cita</span>
+                <input type="date" class="form-control" id="idInputFechaCita2"  name="fechaCita2"  aria-describedby="basic-addon1"  [(ngModel)]="citasPaciente.citaFecha">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idHoraCita2">Hora Cita</span>
+                <input class="form-control"  id="appt-time2" type="time" name="appt-time" step="2" [(ngModel)]="citasPaciente.citaHora">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="idMedico2">Medico</span>
+                <select class="form-select" id="idInputMedico2" name="medico"[(ngModel)]="medico.idMedico">
+                  <option *ngFor="let medico of listMedicos" [ngValue]=" medico.idMedico">{{medico.tblPersona?.perNombre}} {{ medico.tblPersona?.perApellido }}</option>
+                </select>
+              </div>
+              <br>
+              <div class="column">
+                <button class="btn-primary btn" style="margin-right: 10px"  (click)="editarCita()" > Editar </button>
+                <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaConsultaMedica"> Regresar </button>
+              </div>
+            </form>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

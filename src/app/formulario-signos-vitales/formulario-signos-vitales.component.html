@@ -1,0 +1,48 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 style="text-align: center"> Formulario Signos Vitales </h2>
+          <span class="badge" style="color: red">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <form class="mt-4">
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idHistoriaClinica1">Diagnostico Paciente</span>
+              <select class="form-control" id="idInputHistoriaClinica1"  name="HistoriaClinica" [(ngModel)]="diagnosticoPaciente.idDiagnosticoPaciente">
+                <option *ngFor="let diaPaciente of listDiagnosticoPaciente" [ngValue]="diagnosticoPaciente.idDiagnosticoPaciente" >
+                  {{diaPaciente.tblPaciente?.tblPersona?.perNombre}} {{ diaPaciente.tblPaciente?.tblPersona?.perApellido }}
+                </option>
+              </select>
+
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idDepartamento">Signos Vitales</span>
+              <select class="form-select" id="idInputhospital"  name="hospital" [(ngModel)]="signosVitales.idSignosVitales">
+                <option *ngFor="let signosVitales of listSignosVitales" [ngValue]="signosVitales.idSignosVitales" >
+                  {{signosVitales.svNombre}}
+                </option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="dpDiagnostico1">Estado</span>
+              <textarea class="form-control" id="idInpdpDiagnostico1"  name="Diagnostico"  aria-label="With textarea" [(ngModel)]="diagnosticoSVPaciente.devEstado" ></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="idMedicacion1" >Detalle</span>
+              <textarea class="form-control" id="idInputMedicacion1" name="Medicacion" aria-label="With textarea" [(ngModel)]="diagnosticoSVPaciente.dsvDetalle"></textarea>
+            </div>
+            <br>
+            <div class="column">
+              <button class="btn-primary btn" style="margin-right: 10px"  (click)="crearSignosVitales()" > Guardar </button>
+              <button class="btn-danger btn"  style="margin-right: 10px"  routerLink="/listaFichaMedica"> Salir </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

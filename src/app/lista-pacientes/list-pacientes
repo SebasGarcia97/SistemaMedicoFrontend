@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <br>
+  <h2 style="text-align: center"> Lista de Pacientes</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Fecha Nacimiento</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let paciente of listPaciente; let id = index;">
+      <th scope="row"> {{  id  }} </th>
+      <td>{{ paciente.tblPersona?.perCedula}} </td>
+      <td>{{ paciente.tblPersona?.perNombre}} </td>
+      <td>{{ paciente.tblPersona?.perApellido}} </td>
+      <td>{{ paciente.tblPersona?.perTelefono}} </td>
+      <td>{{ paciente.tblPersona?.perFechaNac}} </td>
+      <td>{{ paciente.tblPersona?.perDireccion}} </td>
+      <td>{{ paciente.tblPersona?.perEmail}} </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+</div>

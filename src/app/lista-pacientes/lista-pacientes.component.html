@@ -1,0 +1,46 @@
+<div class="container mt-4 " >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Listado de Pacientes</span>
+
+      <button class="btn btn-dark btn-lg" style="float: right" routerLink="/formularioPaciente" >Agregar Paciente</button>
+
+      <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Fecha Nacimiento</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let paciente of listPaciente; let idPersona = index;">
+          <th scope="row"> {{  idPersona }}  </th>
+          <td>{{ paciente.tblPersona?.perCedula}} </td>
+          <td>{{ paciente.tblPersona?.perNombre}} </td>
+          <td>{{ paciente.tblPersona?.perApellido}} </td>
+          <td>{{ paciente.tblPersona?.perTelefono}} </td>
+          <td>{{ paciente.tblPersona?.perFechaNac}} </td>
+          <td>{{ paciente.tblPersona?.perDireccion}} </td>
+          <td>{{ paciente.tblPersona?.perEmail}} </td>
+          <td>{{ paciente.estadoPaciente}} </td>
+          <td>
+            <button class="btn" title="Editar Paciente" [routerLink]="['/formularioPaciente/', paciente.idPaciente]" ><i class="fa fa-edit" ></i></button>
+            <button class="btn" title="Eliminar Paciente" (click)="eliminarUsuario(paciente)" ><i class="fa fa-trash" ></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
