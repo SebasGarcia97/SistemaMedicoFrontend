@@ -50,15 +50,8 @@ export class FormularioSignosVitalesComponent implements OnInit {
   ngOnInit(): void {
     const val = Number(this.id);
     this.diagnosticoPacienteService.findHistoriaClinicaUsingGET(val).subscribe(data => {
-
       this.listDiagnosticoPaciente = data
-
-
-      console.log(this.listDiagnosticoPaciente)
-
-
     });
-
   }
 
   crearSignosVitales() {

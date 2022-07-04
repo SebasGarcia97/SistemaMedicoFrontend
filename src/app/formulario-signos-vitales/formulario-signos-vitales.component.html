@@ -8,13 +8,12 @@
           <form class="mt-4">
 
             <div class="input-group mb-3">
-              <span class="input-group-text" id="idHistoriaClinica1">Diagnostico Paciente</span>
-              <select class="form-control" id="idInputHistoriaClinica1"  name="HistoriaClinica" [(ngModel)]="diagnosticoPaciente.idDiagnosticoPaciente">
-                <option *ngFor="let diaPaciente of listDiagnosticoPaciente" [ngValue]="diagnosticoPaciente.idDiagnosticoPaciente" >
+              <span class="input-group-text" id="idDiagnosticoPaciente1SV">Diagnostico Paciente</span>
+              <select class="form-control" id="idInputDiaPacienteSV1"  name="Diagnostico Paciente" [(ngModel)]="diagnosticoPaciente.idDiagnosticoPaciente">
+                <option *ngFor="let diaPaciente of listDiagnosticoPaciente" [ngValue]="diaPaciente.idDiagnosticoPaciente" >
                   {{diaPaciente.tblPaciente?.tblPersona?.perNombre}} {{ diaPaciente.tblPaciente?.tblPersona?.perApellido }}
                 </option>
               </select>
-
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="idDepartamento">Signos Vitales</span>
