@@ -25,7 +25,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class CitasControllerService {
 
-    protected basePath = '//localhost:9090/';
+    protected basePath = '//env-9292028.jelastic.saveincloud.net/';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -112,8 +112,6 @@ export class CitasControllerService {
             }
         );
     }
-
-
 
     /**
      * CancelarCitas
@@ -239,6 +237,86 @@ export class CitasControllerService {
         return this.httpClient.request<any>('delete',`${this.basePath}/citas/EliminarCitas`,
             {
                 params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * getCitaByID
+     *
+     * @param idCita idCita
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getCitaByIDUsingGET(idCita?: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getCitaByIDUsingGET(idCita?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getCitaByIDUsingGET(idCita?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getCitaByIDUsingGET(idCita?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (idCita !== undefined && idCita !== null) {
+            queryParameters = queryParameters.set('idCita', <any>idCita);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<any>('get',`${this.basePath}/citas/getCitaByID`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * listCitas
+     *
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listCitasUsingGET(observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public listCitasUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public listCitasUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public listCitasUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<any>('get',`${this.basePath}/citas/list`,
+            {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -400,42 +478,6 @@ export class CitasControllerService {
         );
     }
 
-
-  /**
-   * listCita
-   *
-   * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-   * @param reportProgress flag to report request and response progress.
-   */
-  public listCitasUsingGET(observe?: 'body', reportProgress?: boolean): Observable<any>;
-  public listCitasUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-  public listCitasUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-  public listCitasUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-    let headers = this.defaultHeaders;
-
-    // to determine the Accept header
-    let httpHeaderAccepts: string[] = [
-      '*/*'
-    ];
-    const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-    if (httpHeaderAcceptSelected != undefined) {
-      headers = headers.set('Accept', httpHeaderAcceptSelected);
-    }
-
-    // to determine the Content-Type header
-    const consumes: string[] = [
-    ];
-
-    return this.httpClient.request<any>('get',`${this.basePath}/citas/list`,
-      {
-        withCredentials: this.configuration.withCredentials,
-        headers: headers,
-        observe: observe,
-        reportProgress: reportProgress
-      }
-    );
-  }
 
   /**
    * citaByID

@@ -29,7 +29,7 @@ import { UsuarioControllerService } from './api/usuarioController.service';
     UsuarioControllerService ]
 })
 export class ApiModule {
-    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<any> {
+    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders <any>{
         return {
             ngModule: ApiModule,
             providers: [ { provide: Configuration, useFactory: configurationFactory } ]

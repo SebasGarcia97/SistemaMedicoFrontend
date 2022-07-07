@@ -26,7 +26,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class BasicErrorControllerService {
 
-    protected basePath = '//localhost:9090/';
+    protected basePath = '//env-9292028.jelastic.saveincloud.net/';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 

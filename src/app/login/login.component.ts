@@ -59,8 +59,6 @@ export class LoginComponent implements OnInit {
           this.route.navigate(['/inicio']).then(value => {
             window.location.reload();})
         }
-
-
     });
   }
   createUser() {
